@@ -1,34 +1,44 @@
 import React, { useState } from "react";
 import "./App.css";
-import SignUpPage from "../../frontend/src/pages/SignUpPage";
-import SignInPage from "../../frontend/src/pages/SignInPage";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import NavBar from "./components/Layout/NavBar";
-import HomePage from "./pages/HomePage";
-import Footer from "./components/Layout/Footer";
-import Help from "./components/Help/Help";
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/Layout/NavBar";
+import HomePage from "./components/pages/HomePage";
+import SignUp from "./components/pages/Authentication/SignUp";
+import SignIn from "./components/pages/Authentication/SignIn";
+
+// import AppRoutes from "./components/Routes/Routes";
 
 const App: React.FC = () => {
-
-  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
+  const [isSignUpOpen, setSignUpOpen] = useState(false);
+  const [isSignInOpen, setSignInOpen] = useState(false);
 
   const toggleSignUpForm = () => {
-    setIsSignUpOpen(!isSignUpOpen);
+    setSignUpOpen(!isSignUpOpen);
+    setSignInOpen(false);
+  };
+
+  const toggleSignInForm = () => {
+    setSignInOpen(!isSignInOpen);
+    setSignUpOpen(false);
   };
 
   return (
     <Router>
-      <NavBar toggleSignUpForm={toggleSignUpForm}/> 
+      <NavBar
+       openSignUp={toggleSignUpForm}
+        
+      />
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/signup" element={<SignUpPage toggleSignUpForm={toggleSignUpForm} isSignUpOpen={isSignUpOpen}/>} />
-        <Route path="/signin" element={<SignInPage/>} /> 
-        <Route path ="/help" element={<Help/>}/>
+        <Route path="/" element={<HomePage />} />
+       
       </Routes>
-
-      <Footer/>
-      {/* {isSignUpOpen && <SignUpPage toggleSignUpForm={toggleSignUpForm} isSignUpOpen={isSignUpOpen}/>} */}
+      {isSignUpOpen && (
+        <SignUp onClose={toggleSignUpForm} openSignIn={toggleSignInForm} />
+      )}
+      {isSignInOpen && (
+        <SignIn onClose={toggleSignInForm} openSignUp={toggleSignUpForm} />
+      )}
     </Router>
   );
 };

@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/icons/restaurant.svg";
 import { Link, useNavigate } from "react-router-dom";
+import SignUp from "../pages/Authentication/SignUp";
+import SignIn from "../pages/Authentication/SignIn";
 
-interface NavbarProps {
-  toggleSignUpForm: () => void;
+interface NavBarProps {
+  openSignUp: () => void;
 }
 
-const NavBar: React.FC<NavbarProps> = ({ toggleSignUpForm }) => {
+const NavBar: React.FC<NavBarProps> = ({openSignUp}) => {
   const navigate = useNavigate();
 
   const handleChange = () => {
@@ -29,15 +31,19 @@ const NavBar: React.FC<NavbarProps> = ({ toggleSignUpForm }) => {
           className="h-10 border border-violet-200 p-2 rounded-md"
         />
 
-        <Link
+        {/* <Link
           to="/signup"
           className="text-base font-medium"
           onClick={toggleSignUpForm}
         >
           Sign Up
-        </Link>
-        <Link to="/signin" className="text-base font-medium">
-          Sign In
+        </Link> */}
+        <button className="text-base font-medium" onClick={openSignUp}>
+          SignUp
+        </button>
+
+        <Link to="/cart" className="text-base font-medium">
+          Cart
         </Link>
         <Link to="/help" className="text-base font-medium">
           Help

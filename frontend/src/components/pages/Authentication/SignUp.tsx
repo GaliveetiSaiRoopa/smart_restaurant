@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import SignIn from "./SignIn";
 
-interface SignUpProps {
-  closeForm: () => void;
+interface SignUpProps{
+  onClose: () => void;
+  openSignIn: () => void;
 }
 
-const SignUp: React.FC<SignUpProps> = ({ closeForm }) => {
+const SignUp: React.FC<SignUpProps> = ({onClose,openSignIn}) => {
   // const [loginform, setLoginform] = useState({
   //   firstName: "",
   //   lastName: "",
@@ -13,22 +16,23 @@ const SignUp: React.FC<SignUpProps> = ({ closeForm }) => {
   //   address: "",
   // });
 
+  const navigate = useNavigate();
+
   return (
     // <>
     //   {openForm && (
-    <div className="flex justify-end">
-      <div className="w-1/3">
-        <div className="w-full relative h-12 bg-gray-200 ">
+    <div className="flex justify-end inset-0 absolute h-[100vh]">
+      <div className="w-1/3  bg-gray-200">
+        <div className="w-full flex justify-end ">
           <button
-            className="m-4 px-2 absolute border border-gray-500 rounded-md "
-            onClick={closeForm}
+            className="m-4 px-2 border border-gray-500 rounded-md "
+            onClick={onClose}
           >
-            {" "}
-            Close{" "}
+            X
           </button>
         </div>
 
-        <div className="w-full flex flex-col justify-center items-center bg-gray-200 gap-4 p-6 shadow-slate-400">
+        <div className="w-full flex flex-col justify-center items-center gap-4 p-6 shadow-slate-400">
           <h1 className="font-bold text-xl gap-4">Sign Up</h1>
           <input
             type="text"
@@ -79,7 +83,6 @@ const SignUp: React.FC<SignUpProps> = ({ closeForm }) => {
           <div className="flex items-center mt-4 p-1">
             <input type="checkbox" id="terms" name="terms" className="mr-2" />
             <label htmlFor="terms" className="text-gray-800">
-              {" "}
               I accept the Terms and Conditions
             </label>
           </div>
@@ -90,6 +93,16 @@ const SignUp: React.FC<SignUpProps> = ({ closeForm }) => {
             className="w-1/3 bg-blue-600 h-8 text-base font-medium rounded-sm px-2"
           >
             Sign Up
+          </button>
+        </div>
+
+        <div className="flex">
+          <p>Already SignedIn? </p>
+          <button
+            className="decoration underline"
+            onClick={openSignIn}
+          >
+            Login here
           </button>
         </div>
       </div>
