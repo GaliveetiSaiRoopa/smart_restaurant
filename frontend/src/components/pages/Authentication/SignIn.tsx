@@ -6,12 +6,12 @@ interface SignInProps {
   openSignUp: () => void; // Add prop to open SignUp
 }
 
-const SignIn: React.FC<SignInProps> = ({onClose, openSignUp}) => {
+const SignIn: React.FC<SignInProps> = ({ onClose, openSignUp }) => {
   const navigate = useNavigate();
   return (
-    <div className="inset-0">
-      <div className=" bg-gray-200">
-        <div className="w-full flex justify-end">
+    <div className="flex justify-end inset-0 absolute">
+      <div className="w-1/3 bg-gray-200 px-14">
+        <div className="w-full flex justify-end py-4">
           <button
             className="m-4 px-2 border border-gray-500 rounded-md "
             onClick={onClose}
@@ -19,14 +19,26 @@ const SignIn: React.FC<SignInProps> = ({onClose, openSignUp}) => {
             X
           </button>
         </div>
-        <div className=" flex flex-col justify-center items-center bg-gray-200 gap-4 p-6 shadow-slate-400">
-          <h1 className="font-bold text-xl gap-4">Login</h1>
+        <div className="flex flex-col justify-end">
+          <h1 className="font-bold text-3xl gap-4 mb-2">Login</h1>
+          <div className="flex">
+            <p className="text-base">Not SignedIn? </p>
+            <button
+              className="underline decoration-slate-500 text-base"
+              onClick={openSignUp}
+            >
+              Create New Account
+            </button>
+          </div>
+        </div>
+
+        <div className=" flex flex-col justify-start items-center bg-gray-200 gap-4 py-10 shadow-slate-400">
           <input
-            type="email"
+            type="phone"
             name="Email"
             placeholder="Email"
             id="email"
-            className="w-4/5 h-12 rounded-sm p-2"
+            className="w-full h-14 rounded-sm p-2"
           />
 
           <input
@@ -34,17 +46,19 @@ const SignIn: React.FC<SignInProps> = ({onClose, openSignUp}) => {
             name="Password"
             placeholder="Password"
             id="password"
-            className="w-4/5 h-12 rounded-sm p-2"
+            className="w-full h-14 rounded-sm p-2"
           />
-        </div>
-        <div>
-          <p>Not SignedIn</p>
-          <button
-            className="underline decoration-slate-500"
-            onClick={openSignUp}
-          >
-            Creat New Account
-          </button>
+
+          <div className="w-full">
+            <button
+              type="submit"
+              value="submit"
+              className="bg-blue-600 h-12 text-xl font-medium rounded-sm px-2 w-full text-white"
+            >
+              Login
+            </button>
+            <p>By clicking on login, I accept the Terms and Conditions</p>
+          </div>
         </div>
       </div>
     </div>
