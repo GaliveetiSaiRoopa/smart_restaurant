@@ -31,7 +31,7 @@ const NavBar: React.FC<NavbarProps> = ({ toggleSignUpForm }) => {
 
         <Link
           to="/signup"
-          className="text-base font-medium"
+          className="text-base font-medium hover:bg-green-100 rounded-sm px-2"
           onClick={toggleSignUpForm}
         >
           Sign Up
@@ -42,6 +42,8 @@ const NavBar: React.FC<NavbarProps> = ({ toggleSignUpForm }) => {
         <Link to="/help" className="text-base font-medium">
           Help
         </Link>
+        <Link to = "/cart" className="text-base font-medium">
+        Cart</Link>
       </div>
     </div>
   );

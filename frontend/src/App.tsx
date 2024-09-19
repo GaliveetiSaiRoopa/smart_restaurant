@@ -7,6 +7,7 @@ import NavBar from "./components/Layout/NavBar";
 import HomePage from "./pages/HomePage";
 import Footer from "./components/Layout/Footer";
 import Help from "./components/Help/Help";
+import Cart from "./components/Cart/Cart";
 
 
 const App: React.FC = () => {
@@ -25,6 +26,7 @@ const App: React.FC = () => {
         <Route path="/signup" element={<SignUpPage toggleSignUpForm={toggleSignUpForm} isSignUpOpen={isSignUpOpen}/>} />
         <Route path="/signin" element={<SignInPage/>} /> 
         <Route path ="/help" element={<Help/>}/>
+        <Route path="/cart" element= {<Cart/>}/>
       </Routes>
 
       <Footer/>

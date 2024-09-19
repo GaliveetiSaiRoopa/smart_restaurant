@@ -10,9 +10,10 @@ interface SignUpPageProps {
 const SignUpPage: React.FC<SignUpPageProps>= ({toggleSignUpForm,isSignUpOpen}) => {
 
   return (
-    <>
+    <div>
+      
    {isSignUpOpen && <SignUp closeForm = {toggleSignUpForm}/>}
-    </>
+    </div>
   )
 }
 

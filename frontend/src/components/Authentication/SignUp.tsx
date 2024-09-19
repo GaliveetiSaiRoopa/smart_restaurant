@@ -16,15 +16,15 @@ const SignUp: React.FC<SignUpProps> = ({ closeForm }) => {
   return (
     // <>
     //   {openForm && (
-    <div className="flex justify-end">
+    <div className="flex justify-end fixed inset-0 bg-opacity-5">
       <div className="w-1/3">
         <div className="w-full relative h-12 bg-gray-200 ">
           <button
-            className="m-4 px-2 absolute border border-gray-500 rounded-md "
+            className="absolute top-6 right-6 text-black font-semibold"
             onClick={closeForm}
           >
-            {" "}
-            Close{" "}
+           
+            X
           </button>
         </div>
 
@@ -79,7 +79,6 @@ const SignUp: React.FC<SignUpProps> = ({ closeForm }) => {
           <div className="flex items-center mt-4 p-1">
             <input type="checkbox" id="terms" name="terms" className="mr-2" />
             <label htmlFor="terms" className="text-gray-800">
-              {" "}
               I accept the Terms and Conditions
             </label>
           </div>
