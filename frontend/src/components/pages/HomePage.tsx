@@ -1,5 +1,5 @@
 import React from 'react'
-import FoodList from '../components/Catalog/FoodList'
+import FoodList from './Catalog/FoodList'
 
 const HomePage: React.FC = () => {
   return (
